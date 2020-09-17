@@ -12,7 +12,9 @@ const Counter = ()=>{
     return(
       <div className='container'>
           <h1>Don't Press the Button</h1>
-          <button onClick={()=> setCount(count+1)}><img src={require('./Untitled.png')}/></button>
+          <button onClick={()=> setCount(count+1)}>
+            <img src={require('./button.png')}/>
+            </button>
           <h2> You've broken the rules {count} times</h2>
           <p>{count === 0? "":quotes[randomIndex]}</p>
           
