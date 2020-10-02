@@ -1,0 +1,36 @@
+
+.title{
+    text-align: center;
+}
+
+.shop-con{
+    padding-top: 50px;
+}
+.song-map{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;    
+}
+
+.search{
+    display: grid;
+    place-items: center;
+    padding:25px;
+ 
+}
+
+.form-control.sb{
+    width: 200px;
+}
+
+.song-img{
+    width: 100px;
+}
+
+.song{
+    padding: 50px;
+    text-align: center;
+}
+
+
+
