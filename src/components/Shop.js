@@ -1,8 +1,5 @@
-import { render } from '@testing-library/react'
 import React from 'react'
-import { ShopCon } from './shopCon'
 import "./shop.css"
-import { SearchBar } from './searchbar'
 
 export class Shop extends React.Component{
     state={}

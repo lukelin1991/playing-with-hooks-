@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import { Song } from './Song'
 
 export class ShopCon extends Component{
     
