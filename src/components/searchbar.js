@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-export class SearchBar extends Component{
-    handleChange=(event)=>{
-        this.props.updateInput(event.target.value)
+export const SearchBar=(props)=>{
+    const {updateInput, searchInput} = props
+
+    const handleChange=(event)=>{
+        updateInput(event.target.value)
     }
-    render(){
         return(
             <div className="search">
-                <input className="form-control sb" placeholder="Search our songs" value={this.props.searchInput} onChange={this.handleChange}/>
+                <input className="form-control sb" placeholder="Search our songs" value={searchInput} onChange={handleChange}/>
             </div>
         )
-    }
 }

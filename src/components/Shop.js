@@ -1,34 +1,35 @@
-import { render } from '@testing-library/react'
-import React from 'react'
+import React,{ useState,useEffect } from 'react'
 import { ShopCon } from './shopCon'
-import "./shop.css"
 import { SearchBar } from './searchbar'
+import "./shop.css"
 
-export class Shop extends React.Component{
-    state={
-        songs: [],
-        searchInput: ''
-    }
-    componentDidMount(){
-        fetch('https://sonata-api.herokuapp.com/songs')
-        .then(resp => resp.json())
-        .then(data => this.setState({songs:data}))
+export const Shop=()=>{
+
+    const [songs,setSongs] = useState([])
+    const [searchInput,setInput] = useState('')
+
+    useEffect(()=>{
+        fetchSongs()
+    },[])
+
+    const fetchSongs= async()=>{
+        let resp = await fetch('https://sonata-api.herokuapp.com/songs')
+        let data = await resp.json()
+        setSongs(data)
     }
 
-    filterSongs = () =>{
-        return this.state.songs.filter(song => song.name.toLowerCase().includes(this.state.searchInput.toLowerCase()) || song.artist.name.toLowerCase().includes(this.state.searchInput.toLowerCase()))
+    const filterSongs = () =>{
+        return songs.filter(song => song.name.toLowerCase().includes(searchInput.toLowerCase()) || song.artist.name.toLowerCase().includes(searchInput.toLowerCase()))
     }
 
-    updateInput= (newInput) =>{this.setState({searchInput: newInput})}
+    const updateInput= (newInput) => setInput(newInput)
 
-    render(){
-        return(
-            <div className="main">
-                <h1 className="title">🎶Welcome to DJ Greg's Record Shop🎶</h1>
-                <hr/>
-                <SearchBar searchInput={this.state.searchInput} updateInput={this.updateInput}/>
-                <ShopCon songs={this.filterSongs()}/>
-            </div>
-        )
-    }
+    return(
+        <div className="main">
+            <h1 className="title">🎶Welcome to DJ Greg's Record Shop🎶</h1>
+            <hr/>
+            <SearchBar searchInput={searchInput} updateInput={updateInput}/>
+            <ShopCon songs={filterSongs()}/>
+        </div>
+    )
 }
