@@ -1,11 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-export class SearchBar extends Component{
-    render(){
-        return(
-            <div className="search">
-                <input className="form-control sb" placeholder="Search our songs" />
-            </div>
-        )
+export const SearchBar = (props) => {
+    const { updateInput, searchInput } = props
+
+    const handleChange = (event) => {
+        updateInput(event.target.value)
     }
+
+    return(
+        <div className="search">
+            <input className="form-control sb" placeholder="Search our songs" />
+        </div>
+    )
 }
