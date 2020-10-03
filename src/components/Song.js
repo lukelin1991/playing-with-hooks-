@@ -7,6 +7,8 @@ export const Song = ({ song }) => {
     return(
         <div className="hvr-bob song">
             <img className=" song-img" src={record}/>
+            <p>Title: {name}</p>
+            <p>Artist: {artist.name}</p>
         </div>
     )
 }
