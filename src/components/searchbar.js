@@ -9,7 +9,7 @@ export const SearchBar = (props) => {
 
     return(
         <div className="search">
-            <input className="form-control sb" placeholder="Search our songs" />
+            <input className="form-control sb" placeholder="Search our songs" value={searchInput} onChange={handleChange}/>
         </div>
     )
 }
